@@ -1,19 +1,49 @@
-import { Title } from "solid-start";
-import Counter from "~/components/Counter";
+import { EventIterator } from "event-iterator"
+import JSZip from "jszip";
 
 export default function Home() {
-  return (
-    <main>
-      <Title>Hello World</Title>
-      <h1>Hello world!</h1>
-      <Counter />
-      <p>
-        Visit{" "}
-        <a href="https://start.solidjs.com" target="_blank">
-          start.solidjs.com
-        </a>{" "}
-        to learn how to build SolidStart apps.
-      </p>
-    </main>
-  );
+	const reader = new FileReader();
+
+	const handleImageChange = (event) => {
+		const [file] = event.target.files;
+		reader.onload = loadZip;
+		reader.readAsArrayBuffer(file);
+	}
+
+	const loadZip = async () => {
+		if (!(reader.result instanceof ArrayBuffer)) {
+			return;
+		}
+
+		const zip = await JSZip.loadAsync(reader.result);
+		const iterator = new EventIterator<JSZip.JSZipObject>(({ push }) => {
+			zip.forEach((relativePath, file) => {
+				if (relativePath.includes('Semantic Location History') && relativePath.endsWith('.json')) {
+					push(file);
+				}
+			});
+		});
+
+		for await (const file of iterator) {
+			const data = await file.async('string');
+			const parsedData = JSON.parse(data);
+			const events = parsedData?.timelineObjects ?? [];
+
+			for (const event of events) {
+				if ({}.hasOwnProperty.call(event, 'placeVisit')) {
+					console.log(event.placeVisit?.location?.address);
+				}
+			}
+		}
+	}
+
+	return (
+		<main>
+			<input
+				type="file"
+				accept="application/zip"
+				onChange={handleImageChange}
+			/>
+		</main>
+	);
 }
