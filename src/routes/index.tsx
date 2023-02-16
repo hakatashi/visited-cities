@@ -1,21 +1,13 @@
-import { EventIterator } from "event-iterator"
-import JSZip from "jszip";
+import dayjs from 'dayjs';
+import {EventIterator} from 'event-iterator';
+import JSZip from 'jszip';
+import type {JSX} from 'solid-js';
 import cities from '../data/cities';
-import type { JSX } from "solid-js";
-import dayjs from "dayjs";
 
-const citiesRegex = new RegExp(`(?<city>${cities.map((city) => city.pref + city.name).join('|')})`, '')
+const citiesRegex = new RegExp(`(?<city>${cities.map((city) => city.pref + city.name).join('|')})`, '');
 
-export default function Home() {
+const Home = () => {
 	const reader = new FileReader();
-
-	const handleImageChange: JSX.EventHandler<HTMLInputElement, Event> = (event) => {
-		const file = event.currentTarget.files?.[0];
-		if (file) {
-			reader.onload = loadZip;
-			reader.readAsArrayBuffer(file);
-		}
-	}
 
 	const loadZip = async () => {
 		if (!(reader.result instanceof ArrayBuffer)) {
@@ -29,11 +21,11 @@ export default function Home() {
 					push(file);
 				}
 			});
-			stop();	
+			stop();
 		});
 
 		const citiesSet = new Set<string>();
-		const citiesHistory: {city: string, date: string}[] = [];
+		const cityHistories: {city: string, date: string}[] = [];
 
 		for await (const file of iterator) {
 			const data = await file.async('string');
@@ -48,7 +40,7 @@ export default function Home() {
 						const city: string = match?.groups?.city ?? '';
 						if (!citiesSet.has(city)) {
 							citiesSet.add(city);
-							citiesHistory.push({
+							cityHistories.push({
 								city,
 								date: dayjs(event?.placeVisit?.duration?.startTimestamp ?? '').format('YYYY/MM/DD'),
 							});
@@ -58,8 +50,16 @@ export default function Home() {
 			}
 		}
 
-		console.log(citiesHistory);
-	}
+		console.log(cityHistories);
+	};
+
+	const handleImageChange: JSX.EventHandler<HTMLInputElement, Event> = (event) => {
+		const file = event.currentTarget.files?.[0];
+		if (file) {
+			reader.onload = loadZip;
+			reader.readAsArrayBuffer(file);
+		}
+	};
 
 	return (
 		<main>
@@ -70,4 +70,6 @@ export default function Home() {
 			/>
 		</main>
 	);
-}
+};
+
+export default Home;

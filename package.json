@@ -3,14 +3,17 @@
   "scripts": {
     "dev": "solid-start dev",
     "build": "solid-start build",
-    "start": "solid-start start"
+    "start": "solid-start start",
+    "lint": "eslint --ignore-path .gitignore . --fix"
   },
   "type": "module",
   "devDependencies": {
+    "@hakatashi/eslint-config": "^1.19.0",
     "@types/download": "^8.0.2",
     "@types/fs-extra": "^11.0.1",
     "@types/node": "^18.11.18",
     "esbuild": "^0.14.54",
+    "eslint": "^8.34.0",
     "fs-extra": "^11.1.0",
     "postcss": "^8.4.21",
     "solid-start-node": "^0.2.19",
