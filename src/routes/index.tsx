@@ -18,7 +18,7 @@ const Home = () => {
 	const [cityVisits, setCityVisits] = createSignal<{city: string, cityId: string, date: string}[]>([]);
 
 	onMount(async () => {
-		const data: CitiesGeojson = await fetch('/data/cities.geojson').then((data) => data.json());
+		const data: CitiesGeojson = await fetch('./data/cities.geojson').then((data) => data.json());
 		setCitiesGeojson(data);
 	});
 
@@ -27,7 +27,7 @@ const Home = () => {
 			return;
 		}
 
-		const cities = await fetch('/data/cities.json').then((data) => data.json());
+		const cities = await fetch('./data/cities.json').then((data) => data.json());
 		const cityIds = new Map<string, string>(cities.map((city) => [city.pref + city.name, city.id]));
 		const citiesRegex = new RegExp(`(?<city>${cities.map((city) => city.pref + city.name).join('|')})`, '');
 
