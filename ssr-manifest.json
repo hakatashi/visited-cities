@@ -1,0 +1,91 @@
+{
+  "vite/modulepreload-polyfill": [],
+  "node_modules/solid-js/dist/solid.js": [],
+  "node_modules/solid-js/web/dist/web.js": [],
+  "\u0000vite/preload-helper": [],
+  "node_modules/solid-start/entry-client/mount.tsx": [],
+  "node_modules/@solidjs/meta/dist/index.jsx": [],
+  "node_modules/@solidjs/router/dist/integration.js": [],
+  "node_modules/@solidjs/router/dist/lifecycle.js": [],
+  "node_modules/@solidjs/router/dist/utils.js": [],
+  "node_modules/@solidjs/router/dist/routing.js": [],
+  "node_modules/@solidjs/router/dist/components.jsx": [],
+  "node_modules/solid-start/root/FileRoutes.tsx": [],
+  "node_modules/solid-start/server/ServerContext.tsx": [],
+  "node_modules/solid-start/router.tsx": [],
+  "node_modules/solid-start/server/types.tsx": [],
+  "node_modules/solid-start/error-boundary/ErrorBoundary.tsx": [],
+  "node_modules/solid-start/root/Scripts.tsx": [],
+  "node_modules/solid-start/root/Document.tsx": [],
+  "src/root.css": [],
+  "src/root.tsx": [],
+  "node_modules/solid-start/entry-client/StartClient.tsx": [],
+  "src/entry-client.tsx": [],
+  ".solid/index.html": [],
+  "node_modules/solid-start/server/components/HttpStatusCode.tsx": [
+    "/assets/_...404_.94852757.js"
+  ],
+  "src/routes/[...404].tsx": [
+    "/assets/_...404_.94852757.js"
+  ],
+  "\u0000commonjsHelpers.js": [
+    "/assets/index.d2c0fc86.js",
+    "/assets/index.96b4f3a3.css"
+  ],
+  "\u0000/home/runner/work/visited-cities/visited-cities/node_modules/dayjs/dayjs.min.js?commonjs-module": [
+    "/assets/index.d2c0fc86.js",
+    "/assets/index.96b4f3a3.css"
+  ],
+  "node_modules/dayjs/dayjs.min.js": [
+    "/assets/index.d2c0fc86.js",
+    "/assets/index.96b4f3a3.css"
+  ],
+  "\u0000/home/runner/work/visited-cities/visited-cities/node_modules/event-iterator/lib/dom.js?commonjs-exports": [
+    "/assets/index.d2c0fc86.js",
+    "/assets/index.96b4f3a3.css"
+  ],
+  "\u0000/home/runner/work/visited-cities/visited-cities/node_modules/event-iterator/lib/event-iterator.js?commonjs-exports": [
+    "/assets/index.d2c0fc86.js",
+    "/assets/index.96b4f3a3.css"
+  ],
+  "node_modules/event-iterator/lib/event-iterator.js": [
+    "/assets/index.d2c0fc86.js",
+    "/assets/index.96b4f3a3.css"
+  ],
+  "node_modules/event-iterator/lib/dom.js": [
+    "/assets/index.d2c0fc86.js",
+    "/assets/index.96b4f3a3.css"
+  ],
+  "\u0000commonjs-dynamic-modules": [
+    "/assets/index.d2c0fc86.js",
+    "/assets/index.96b4f3a3.css"
+  ],
+  "\u0000/home/runner/work/visited-cities/visited-cities/node_modules/jszip/dist/jszip.min.js?commonjs-module": [
+    "/assets/index.d2c0fc86.js",
+    "/assets/index.96b4f3a3.css"
+  ],
+  "node_modules/jszip/dist/jszip.min.js": [
+    "/assets/index.d2c0fc86.js",
+    "/assets/index.96b4f3a3.css"
+  ],
+  "\u0000/home/runner/work/visited-cities/visited-cities/node_modules/mercator-projection/index.js?commonjs-exports": [
+    "/assets/index.d2c0fc86.js",
+    "/assets/index.96b4f3a3.css"
+  ],
+  "node_modules/mercator-projection/index.js": [
+    "/assets/index.d2c0fc86.js",
+    "/assets/index.96b4f3a3.css"
+  ],
+  "src/components/Japan.module.css?used": [
+    "/assets/index.d2c0fc86.js",
+    "/assets/index.96b4f3a3.css"
+  ],
+  "src/components/Japan.tsx": [
+    "/assets/index.d2c0fc86.js",
+    "/assets/index.96b4f3a3.css"
+  ],
+  "src/routes/index.tsx": [
+    "/assets/index.d2c0fc86.js",
+    "/assets/index.96b4f3a3.css"
+  ]
+}
