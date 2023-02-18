@@ -1,0 +1,14 @@
+.city > polygon {
+  fill: #AAA;
+  stroke-width: 0.005;
+  stroke: #444;
+}
+
+.city.visited > polygon {
+  fill: #ff5722;
+  stroke: #6e1a00;
+}
+
+.city:hover > polygon {
+  fill: red;
+}

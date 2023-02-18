@@ -1,18 +1,28 @@
 import dayjs from 'dayjs';
 import {EventIterator} from 'event-iterator';
 import JSZip from 'jszip';
-import type {JSX} from 'solid-js';
-import cities from '../data/cities';
-
-const citiesRegex = new RegExp(`(?<city>${cities.map((city) => city.pref + city.name).join('|')})`, '');
+import {createSignal, JSX, onMount, Show} from 'solid-js';
+import type {CitiesGeojson, Feature} from '~/components/Japan';
+import Japan from '~/components/Japan';
 
 const Home = () => {
 	const reader = new FileReader();
+
+	const [citiesGeojson, setCitiesGeojson] = createSignal<CitiesGeojson | null>(null);
+
+	onMount(async () => {
+		const data: CitiesGeojson = await fetch('/data/cities.geojson').then((data) => data.json());
+		setCitiesGeojson(data);
+	});
 
 	const loadZip = async () => {
 		if (!(reader.result instanceof ArrayBuffer)) {
 			return;
 		}
+
+		const cities = await fetch('/data/cities.json').then((data) => data.json());
+		const cityIds = new Map<string, string>(cities.map((city) => [city.pref + city.name, city.id]));
+		const citiesRegex = new RegExp(`(?<city>${cities.map((city) => city.pref + city.name).join('|')})`, '');
 
 		const zip = await JSZip.loadAsync(reader.result);
 		const iterator = new EventIterator<JSZip.JSZipObject>(({push, stop}) => {
@@ -50,7 +60,29 @@ const Home = () => {
 			}
 		}
 
-		console.log(cityHistories);
+		const visitedCityIds = new Set<string>();
+		for (const {city} of cityHistories) {
+			if (cityIds.has(city)) {
+				visitedCityIds.add(cityIds.get(city)!);
+			}
+		}
+
+		const newFeatures = citiesGeojson()!.features.map((feature) => {
+			const names = Object.values(feature.properties);
+			const visited = names.some((name) => visitedCityIds.has(name));
+			if (visited) {
+				return {
+					...feature,
+					visited: true,
+				} as Feature;
+			}
+			return feature;
+		});
+
+		setCitiesGeojson({
+			type: 'FeatureCollection',
+			features: newFeatures,
+		});
 	};
 
 	const handleImageChange: JSX.EventHandler<HTMLInputElement, Event> = (event) => {
@@ -63,6 +95,9 @@ const Home = () => {
 
 	return (
 		<main>
+			<Show when={citiesGeojson()}>
+				<Japan geojson={citiesGeojson()}/>
+			</Show>
 			<input
 				type="file"
 				accept="application/zip"

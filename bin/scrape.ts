@@ -19,6 +19,12 @@ const cities = [];
 			pref,
 		})));
 	}
-	await fs.ensureDir(`${dirname}/../src/data`);
-	await fs.writeJson(`${dirname}/../src/data/cities.json`, cities);
+	await fs.ensureDir(`${dirname}/../public/data`);
+	await fs.writeJson(`${dirname}/../public/data/cities.json`, cities);
+
+	await download(
+		'https://github.com/smartnews-smri/japan-topography/raw/main/data/municipality/geojson/s0001/N03-21_210101.json',
+		`${dirname}/../public/data`,
+		{filename: 'cities.geojson'},
+	);
 })();

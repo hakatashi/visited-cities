@@ -28,6 +28,8 @@
     "download": "^8.0.0",
     "event-iterator": "^2.0.0",
     "jszip": "^3.10.1",
+    "leaflet": "^1.9.3",
+    "mercator-projection": "^0.0.2",
     "solid-js": "^1.6.11",
     "solid-start": "^0.2.21",
     "undici": "^5.15.1"
