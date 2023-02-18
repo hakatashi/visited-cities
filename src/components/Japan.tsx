@@ -1,6 +1,5 @@
-import {log} from 'console';
 import merc from 'mercator-projection';
-import {createMemo, createSignal, Index, Show} from 'solid-js';
+import {createMemo, Index} from 'solid-js';
 import styles from './Japan.module.css';
 
 interface Polygon {
@@ -27,6 +26,7 @@ export interface CitiesGeojson {
 
 interface PolygonsProps {
   polygon: Polygon | MultiPolygon,
+  names: string[],
   visited: boolean,
 }
 
@@ -76,6 +76,7 @@ const Japan = (props: JapanProps) => (
 			{(feature) => (
 				<Polygons
 					polygon={feature().geometry}
+					names={Object.values(feature().properties)}
 					visited={feature().visited ?? false}
 				/>
 			)}
