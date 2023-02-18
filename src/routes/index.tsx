@@ -8,6 +8,7 @@ import Japan from '~/components/Japan';
 interface CityVisit {
 	city: string,
 	cityId: string | undefined,
+	placeId: string,
 	date: string,
 }
 
@@ -44,25 +45,37 @@ const Home = () => {
 		const citiesSet = new Set<string>();
 		const cityHistories: CityVisit[] = [];
 
+		const totalEvents = [];
+
 		for await (const file of iterator) {
 			const data = await file.async('string');
 			const parsedData = JSON.parse(data);
 			const events = parsedData?.timelineObjects ?? [];
+			totalEvents.push(...events.filter((event) => event.placeVisit));
+		}
 
-			for (const event of events) {
-				if ({}.hasOwnProperty.call(event, 'placeVisit')) {
-					const address: string = event.placeVisit?.location?.address ?? '';
-					const match = citiesRegex.exec(address);
-					if (match) {
-						const city: string = match?.groups?.city ?? '';
-						if (!citiesSet.has(city)) {
-							citiesSet.add(city);
-							cityHistories.push({
-								city,
-								cityId: cityIds.get(city),
-								date: dayjs(event?.placeVisit?.duration?.startTimestamp ?? '').format('YYYY/MM/DD'),
-							} as CityVisit);
-						}
+		totalEvents.sort((a, b) => {
+			const dateA = a?.placeVisit?.duration?.startTimestamp ?? 0;
+			const dateB = b?.placeVisit?.duration?.startTimestamp ?? 0;
+			return dateA.localeCompare(dateB);
+		});
+
+		console.log(totalEvents);
+
+		for (const event of totalEvents) {
+			if ({}.hasOwnProperty.call(event, 'placeVisit')) {
+				const address: string = event.placeVisit?.location?.address ?? '';
+				const match = citiesRegex.exec(address);
+				if (match) {
+					const city: string = match?.groups?.city ?? '';
+					if (!citiesSet.has(city)) {
+						citiesSet.add(city);
+						cityHistories.push({
+							city,
+							cityId: cityIds.get(city),
+							placeId: event?.placeVisit?.location?.placeId ?? '',
+							date: dayjs(event?.placeVisit?.duration?.startTimestamp ?? '').format('YYYY/MM/DD'),
+						} as CityVisit);
 					}
 				}
 			}
@@ -124,7 +137,9 @@ const Home = () => {
 			/>
 			<For each={cityVisits()}>
 				{(cityVisit) => (
-					<p>{cityVisit.city} ({cityVisit.cityId}): {cityVisit.date}</p>
+					<p>
+						<a href={`https://www.google.com/maps/place/?q=place_id:${cityVisit.placeId}`} target="_blank" rel="noopener noreferrer">{cityVisit.city}</a> ({cityVisit.cityId}): {cityVisit.date}
+					</p>
 				 )}
 			</For>
 		</main>
