@@ -5,6 +5,8 @@ import {createSignal, For, JSX, onMount, Show} from 'solid-js';
 import type {CitiesGeojson, Feature} from '~/components/Japan';
 import Japan from '~/components/Japan';
 
+import './index.css';
+
 interface CityVisit {
 	city: string,
 	cityId: string | undefined,
@@ -12,15 +14,27 @@ interface CityVisit {
 	date: string,
 }
 
+interface City {
+	id: string,
+	name: string,
+	pref: string,
+}
+
 const Home = () => {
 	const reader = new FileReader();
 
 	const [citiesGeojson, setCitiesGeojson] = createSignal<CitiesGeojson | null>(null);
-	const [cityVisits, setCityVisits] = createSignal<{city: string, cityId: string, date: string}[]>([]);
+	const [cityVisits, setCityVisits] = createSignal<CityVisit[]>([]);
+	const [cities, setCities] = createSignal<City[]>([]);
 
 	onMount(async () => {
 		const data: CitiesGeojson = await fetch('./data/cities.geojson').then((data) => data.json());
 		setCitiesGeojson(data);
+	});
+
+	onMount(async () => {
+		const data = await fetch('./data/cities.json').then((data) => data.json());
+		setCities(data);
 	});
 
 	const loadZip = async () => {
@@ -28,9 +42,8 @@ const Home = () => {
 			return;
 		}
 
-		const cities = await fetch('./data/cities.json').then((data) => data.json());
-		const cityIds = new Map<string, string>(cities.map((city) => [city.pref + city.name, city.id]));
-		const citiesRegex = new RegExp(`(?<city>${cities.map((city) => city.pref + city.name).join('|')})`, '');
+		const cityIds = new Map<string, string>(cities().map((city) => [city.pref + city.name, city.id]));
+		const citiesRegex = new RegExp(`(?<city>${cities().map((city) => city.pref + city.name).join('|')})`, '');
 
 		const zip = await JSZip.loadAsync(reader.result);
 		const iterator = new EventIterator<JSZip.JSZipObject>(({push, stop}) => {
@@ -74,7 +87,7 @@ const Home = () => {
 							city,
 							cityId: cityIds.get(city),
 							placeId: event?.placeVisit?.location?.placeId ?? '',
-							date: dayjs(event?.placeVisit?.duration?.startTimestamp ?? '').format('YYYY/MM/DD'),
+							date: dayjs(event?.placeVisit?.duration?.startTimestamp ?? '').format('YYYY年MM月DD日'),
 						} as CityVisit);
 					}
 				}
@@ -135,13 +148,21 @@ const Home = () => {
 				accept="application/zip"
 				onChange={handleImageChange}
 			/>
-			<For each={cityVisits()}>
-				{(cityVisit) => (
-					<p>
-						<a href={`https://www.google.com/maps/place/?q=place_id:${cityVisit.placeId}`} target="_blank" rel="noopener noreferrer">{cityVisit.city}</a> ({cityVisit.cityId}): {cityVisit.date}
-					</p>
-				 )}
-			</For>
+			<p>{cityVisits().length}/{cities().length} 市町村 訪問済み</p>
+			<div class="visits">
+				<For each={cityVisits()}>
+					{(cityVisit) => (
+						<p class="visit">
+							<span class="visit-city">
+								<a href={`https://www.google.com/maps/place/?q=place_id:${cityVisit.placeId}`} target="_blank" rel="noopener noreferrer">{cityVisit.city}</a>
+							</span>
+							<span class="visit-date">
+								{cityVisit.date}
+							</span>
+						</p>
+					)}
+				</For>
+			</div>
 		</main>
 	);
 };

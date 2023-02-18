@@ -1,0 +1,16 @@
+.visits {
+  column-width: 20rem;
+}
+
+.visit {
+  margin: 0;
+}
+
+.visit-city {
+  display: inline-block;
+  width: 10rem;
+}
+
+.visit-city a {
+  text-decoration: none;
+}
