@@ -23,69 +23,69 @@
   "src/entry-client.tsx": [],
   ".solid/index.html": [],
   "node_modules/solid-start/server/components/HttpStatusCode.tsx": [
-    "/assets/_...404_.94852757.js"
+    "/visited-cities/assets/_...404_.ee6a91d7.js"
   ],
   "src/routes/[...404].tsx": [
-    "/assets/_...404_.94852757.js"
+    "/visited-cities/assets/_...404_.ee6a91d7.js"
   ],
   "\u0000commonjsHelpers.js": [
-    "/assets/index.d2c0fc86.js",
-    "/assets/index.96b4f3a3.css"
+    "/visited-cities/assets/index.c93b6501.js",
+    "/visited-cities/assets/index.96b4f3a3.css"
   ],
   "\u0000/home/runner/work/visited-cities/visited-cities/node_modules/dayjs/dayjs.min.js?commonjs-module": [
-    "/assets/index.d2c0fc86.js",
-    "/assets/index.96b4f3a3.css"
+    "/visited-cities/assets/index.c93b6501.js",
+    "/visited-cities/assets/index.96b4f3a3.css"
   ],
   "node_modules/dayjs/dayjs.min.js": [
-    "/assets/index.d2c0fc86.js",
-    "/assets/index.96b4f3a3.css"
+    "/visited-cities/assets/index.c93b6501.js",
+    "/visited-cities/assets/index.96b4f3a3.css"
   ],
   "\u0000/home/runner/work/visited-cities/visited-cities/node_modules/event-iterator/lib/dom.js?commonjs-exports": [
-    "/assets/index.d2c0fc86.js",
-    "/assets/index.96b4f3a3.css"
+    "/visited-cities/assets/index.c93b6501.js",
+    "/visited-cities/assets/index.96b4f3a3.css"
   ],
   "\u0000/home/runner/work/visited-cities/visited-cities/node_modules/event-iterator/lib/event-iterator.js?commonjs-exports": [
-    "/assets/index.d2c0fc86.js",
-    "/assets/index.96b4f3a3.css"
+    "/visited-cities/assets/index.c93b6501.js",
+    "/visited-cities/assets/index.96b4f3a3.css"
   ],
   "node_modules/event-iterator/lib/event-iterator.js": [
-    "/assets/index.d2c0fc86.js",
-    "/assets/index.96b4f3a3.css"
+    "/visited-cities/assets/index.c93b6501.js",
+    "/visited-cities/assets/index.96b4f3a3.css"
   ],
   "node_modules/event-iterator/lib/dom.js": [
-    "/assets/index.d2c0fc86.js",
-    "/assets/index.96b4f3a3.css"
+    "/visited-cities/assets/index.c93b6501.js",
+    "/visited-cities/assets/index.96b4f3a3.css"
   ],
   "\u0000commonjs-dynamic-modules": [
-    "/assets/index.d2c0fc86.js",
-    "/assets/index.96b4f3a3.css"
+    "/visited-cities/assets/index.c93b6501.js",
+    "/visited-cities/assets/index.96b4f3a3.css"
   ],
   "\u0000/home/runner/work/visited-cities/visited-cities/node_modules/jszip/dist/jszip.min.js?commonjs-module": [
-    "/assets/index.d2c0fc86.js",
-    "/assets/index.96b4f3a3.css"
+    "/visited-cities/assets/index.c93b6501.js",
+    "/visited-cities/assets/index.96b4f3a3.css"
   ],
   "node_modules/jszip/dist/jszip.min.js": [
-    "/assets/index.d2c0fc86.js",
-    "/assets/index.96b4f3a3.css"
+    "/visited-cities/assets/index.c93b6501.js",
+    "/visited-cities/assets/index.96b4f3a3.css"
   ],
   "\u0000/home/runner/work/visited-cities/visited-cities/node_modules/mercator-projection/index.js?commonjs-exports": [
-    "/assets/index.d2c0fc86.js",
-    "/assets/index.96b4f3a3.css"
+    "/visited-cities/assets/index.c93b6501.js",
+    "/visited-cities/assets/index.96b4f3a3.css"
   ],
   "node_modules/mercator-projection/index.js": [
-    "/assets/index.d2c0fc86.js",
-    "/assets/index.96b4f3a3.css"
+    "/visited-cities/assets/index.c93b6501.js",
+    "/visited-cities/assets/index.96b4f3a3.css"
   ],
   "src/components/Japan.module.css?used": [
-    "/assets/index.d2c0fc86.js",
-    "/assets/index.96b4f3a3.css"
+    "/visited-cities/assets/index.c93b6501.js",
+    "/visited-cities/assets/index.96b4f3a3.css"
   ],
   "src/components/Japan.tsx": [
-    "/assets/index.d2c0fc86.js",
-    "/assets/index.96b4f3a3.css"
+    "/visited-cities/assets/index.c93b6501.js",
+    "/visited-cities/assets/index.96b4f3a3.css"
   ],
   "src/routes/index.tsx": [
-    "/assets/index.d2c0fc86.js",
-    "/assets/index.96b4f3a3.css"
+    "/visited-cities/assets/index.c93b6501.js",
+    "/visited-cities/assets/index.96b4f3a3.css"
   ]
 }

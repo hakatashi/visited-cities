@@ -2,44 +2,44 @@
   "/*404": [
     {
       "type": "script",
-      "href": "/assets/_...404_.94852757.js"
+      "href": "/visited-cities/assets/_...404_.ee6a91d7.js"
     },
     {
       "type": "script",
-      "href": "/assets/index.7e5f547a.js"
+      "href": "/visited-cities/assets/index.bb150b01.js"
     },
     {
       "type": "style",
-      "href": "/assets/index.d870915a.css"
+      "href": "/visited-cities/assets/index.d870915a.css"
     }
   ],
   "/": [
     {
       "type": "script",
-      "href": "/assets/index.d2c0fc86.js"
+      "href": "/visited-cities/assets/index.c93b6501.js"
     },
     {
       "type": "script",
-      "href": "/assets/index.7e5f547a.js"
+      "href": "/visited-cities/assets/index.bb150b01.js"
     },
     {
       "type": "style",
-      "href": "/assets/index.d870915a.css"
+      "href": "/visited-cities/assets/index.d870915a.css"
     },
     {
       "type": "style",
-      "href": "/assets/index.96b4f3a3.css"
+      "href": "/visited-cities/assets/index.96b4f3a3.css"
     }
   ],
   "entry-client": [],
   "index.html": [
     {
       "type": "script",
-      "href": "/assets/index.7e5f547a.js"
+      "href": "/visited-cities/assets/index.bb150b01.js"
     },
     {
       "type": "style",
-      "href": "/assets/index.d870915a.css"
+      "href": "/visited-cities/assets/index.d870915a.css"
     }
   ]
 }
