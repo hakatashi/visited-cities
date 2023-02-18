@@ -2,11 +2,11 @@
   "/*404": [
     {
       "type": "script",
-      "href": "/visited-cities/assets/_...404_.ca061a83.js"
+      "href": "/visited-cities/assets/_...404_.98ac748b.js"
     },
     {
       "type": "script",
-      "href": "/visited-cities/assets/index.c8243942.js"
+      "href": "/visited-cities/assets/index.def5987f.js"
     },
     {
       "type": "style",
@@ -16,11 +16,11 @@
   "/": [
     {
       "type": "script",
-      "href": "/visited-cities/assets/index.1c688e80.js"
+      "href": "/visited-cities/assets/index.4f58901c.js"
     },
     {
       "type": "script",
-      "href": "/visited-cities/assets/index.c8243942.js"
+      "href": "/visited-cities/assets/index.def5987f.js"
     },
     {
       "type": "style",
@@ -28,14 +28,14 @@
     },
     {
       "type": "style",
-      "href": "/visited-cities/assets/index.96b4f3a3.css"
+      "href": "/visited-cities/assets/index.3c564126.css"
     }
   ],
   "entry-client": [],
   "index.html": [
     {
       "type": "script",
-      "href": "/visited-cities/assets/index.c8243942.js"
+      "href": "/visited-cities/assets/index.def5987f.js"
     },
     {
       "type": "style",
